@@ -114,6 +114,41 @@
           }
         }
       }
+    },
+    "cropit": {
+      "projectType": "library",
+      "root": "projects/cropit",
+      "sourceRoot": "projects/cropit/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cropit/tsconfig.lib.json",
+            "project": "projects/cropit/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cropit/src/test.ts",
+            "tsConfig": "projects/cropit/tsconfig.spec.json",
+            "karmaConfig": "projects/cropit/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cropit/tsconfig.lib.json",
+              "projects/cropit/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ng-cropperjs"
 }

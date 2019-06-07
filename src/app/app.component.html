@@ -1,10 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-      Welcome to {{ title }}!
-  </h1>
-</div>
-<div style="height: 50%; width: 50%; position:absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); ">
-  <angular-cropper [cropperOptions]="{ initialAspectRatio: 1/1, cropBoxResizable: false }" [imageUrl]="'https://fengyuanchen.github.io/cropperjs/images/picture.jpg'" #angularCropper ></angular-cropper>
-  <input type="file" id="inputImage" name="file" accept="image/*" (change)="mordi($event)">
-</div>
+  <angular-cropper 
+    #angularCropper
+    [cropperOptions]="config" 
+    [imageUrl]="imageUrl"></angular-cropper>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <br />
+    <br />
+    <input type="file" id="avatar" (change)="onFileChange($event)" accept="image/*" #fileInput>
+    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Clear file</button>
+  </div>
+  <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+</form>

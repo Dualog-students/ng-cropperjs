@@ -10,3 +10,7 @@ this example is used for choosing an image from file and then cropping and sendi
 ## Documentation
 
 See main repo documentation for more advanced usage examples and options https://github.com/fengyuanchen/cropperjs/blob/master/README.md
+
+## Creds
+
+Lots of creds to this project https://github.com/matheusdavidson/angular-cropperjs
